@@ -342,9 +342,49 @@ class Pixoo(PixooBaseApi):
         data = self.send_command("Channel/GetAllConf")
         return {key: val for key, val in data.items() if key != "error_code"}
 
+    def play_pixoo_gif(
+            self,
+            file_type,
+            file_name
+    ):
+        #testing on Pixoo64 with removable SD card
+        """Function to play gif files
+        0:play tf’s file 1:play tf’s folder 2:play net file"""
+        #to use 0, need to set up http server to copy gifs to Pixoo SD card using save_gif_to_pixoo
+
+        # This won't be possible
+        if self.simulated:
+            return
+
+        self.send_command(
+            command="Device/PlayTFGif",
+            file_type=file_type,
+            file_name=file_name
+        )
+
+
     def push(self):
         """Function to send the buffer to the device"""
         self.__send_buffer()
+
+    def save_gif_to_pixoo(
+            self,
+            net_name,
+            local_name
+    ):
+        #tested on Pixoo64 with removable SD card
+        """Function to save hosted gif files to local Pixoo storage. Use play_pixoo_gif to play
+        Can Specify a new Folder and the Pixoo64 will create it"""
+
+        # This won't be possible
+        if self.simulated:
+            return
+
+        self.send_command(
+            command="Device/SaveTFGif",
+            net_name=net_name,
+            local_name=local_name
+        )
 
     def send_text(
         self,
