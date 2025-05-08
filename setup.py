@@ -27,7 +27,7 @@ setup(
     packages=['pixoo_ng'],
     install_requires=[
         'requests ~= 2.31.0',
-        'Pillow ~= 10.0.0',
+        'Pillow ~= 11.2.1',
     ],
     python_requires=">=3.10",
 #    package_dir={"": "."},
