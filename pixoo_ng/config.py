@@ -1,6 +1,6 @@
 """Configuration of a Pixoo device"""
 
-from .find_device import get_pixoo_devices as _get_pixoo_devices
+from find_device import get_pixoo_devices as _get_pixoo_devices
 import exceptions as _exceptions
 
 class PixooConfig:

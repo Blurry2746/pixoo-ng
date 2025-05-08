@@ -5,7 +5,7 @@ This module is used to find pixoo devices in your local network to later use
 them by the Pixoo library
 """
 import requests as _requests
-from .api import ApiResponse as _ApiResponse
+from api import ApiResponse as _ApiResponse
 import exceptions as _exceptions
 
 
